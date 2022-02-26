@@ -1,8 +1,11 @@
-import { opine } from "https://deno.land/x/opine@2.1.2/mod.ts";
+import { opine, serveStatic } from "https://deno.land/x/opine@2.1.2/mod.ts";
 
 const app = opine();
 
-const pathToIndexHTML = `${Deno.cwd()}/frontend/index.html`
+const pathToAssets = `${Deno.cwd()}/frontend/nft-marketplace/dist`
+const pathToIndexHTML = `${pathToAssets}/index.html`
+
+app.use(serveStatic(pathToAssets))
 
 app.get("/", function (req, res) {
     res.sendFile(pathToIndexHTML);
