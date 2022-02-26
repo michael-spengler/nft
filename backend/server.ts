@@ -11,6 +11,10 @@ app.get("/", function (req, res) {
     res.sendFile(pathToIndexHTML);
 });
 
+app.post("/addUser", function (req, res) {
+    // save to file or database
+});
+
 app.listen(
     3000,
     () => console.log("server has started on http://localhost:3000 🚀"),
